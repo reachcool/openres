@@ -17,7 +17,7 @@ class ScholarSpider(Spider):
     def parse(self,response):
 	res = Selector(response)
 	url = res.xpath('//h3/a/@href').extract()
-	url_item = 'http://scholar.glgoo.org'+ str(url[0]) + '&pagesize=100'
+	url_item = 'http://scholar.glgoo.org'+ str(url[0]) + '&pagesize=1000'
 	yield Request(url=url_item,callback=self.parse_all)
 
     def parse_all(self, response):
